@@ -1,0 +1,23 @@
+---
+export const prerender = false;
+import Video from "./Video.astro";
+
+const response = await fetch(`${Astro.url.origin}/trending?region=US`);
+const data = await response.json();
+const { videos } = JSON.parse(data);
+---
+
+<!-- script for logging only -->
+<script define:vars={{ data }}>
+    console.log(JSON.parse(data));
+</script>
+
+<h1>Trending Videos</h1>
+
+<ul>
+    {
+        videos.map((video: any, index: number) => {
+            return <Video data={video} index={index} />;
+        })
+    }
+</ul>
