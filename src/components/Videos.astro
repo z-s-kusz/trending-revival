@@ -17,7 +17,7 @@ const { videos } = JSON.parse(data);
 <ul>
     {
         videos.map((video: any, index: number) => {
-            return <Video data={video} index={index} />;
+            return <Video video={video} index={index} />;
         })
     }
 </ul>

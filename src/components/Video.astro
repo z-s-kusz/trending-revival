@@ -1,9 +1,45 @@
 ---
-    const { data, index } = Astro.props;
-    const { snippet, statistics } = data;
+const { video, index } = Astro.props;
+const { snippet, statistics } = video;
+const videoLink = `https://www.youtube.com/watch?v=${video.id}`;
+const channelLink = `https://www.youtube.com/@${snippet.channelTitle}`;
+const viewCount = Number(statistics.viewCount).toLocaleString();
+let thumbnailSrcset = "";
+
+Object.keys(snippet.thumbnails).forEach((key) => {
+    if (key !== "default") {
+        thumbnailSrcset += `${snippet.thumbnails[key].url} ${snippet.thumbnails[key].width}w, \n`;
+    }
+});
 ---
 
-<img alt={snippet.title} src={snippet.thumbnails.default.url} />
-<p>{snippet.title}</p>
-<p>{snippet.channelTitle}</p>
-<p>{statistics.viewCount} Views</p>
+<article>
+    <a href={videoLink}>
+        <img
+            src={snippet.thumbnails.default.url}
+            srcset={thumbnailSrcset}
+            alt={snippet.title}
+        />
+    </a>
+    <p>
+        <a href={videoLink}>{snippet.title}</a>
+    </p>
+    <p>
+        <a href={channelLink}>{snippet.channelTitle}</a>
+        | <span>{viewCount} Views</span>
+    </p>
+    <p></p>
+</article>
+
+<style>
+    a:has(img):hover {
+        border-bottom: none;
+    }
+    p,
+    img {
+        margin-bottom: 0;
+    }
+    article {
+        margin-bottom: 2rem;
+    }
+</style>
