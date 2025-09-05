@@ -2,17 +2,15 @@
 export const prerender = false;
 import Video from "./Video.astro";
 
-const response = await fetch(`${Astro.url.origin}/trending?region=US`);
-const data = await response.json();
-const { videos } = JSON.parse(data);
+let videos = [];
+try {
+    const response = await fetch(`${Astro.url.origin}/trending?region=US`);
+    const data = await response.json();
+    videos = JSON.parse(data).videos;
+} catch (err) {
+    console.error(err);
+}
 ---
-
-<!-- script for logging only -->
-<script define:vars={{ data }}>
-    console.log(JSON.parse(data));
-</script>
-
-<h1>Trending Videos</h1>
 
 <ul>
     {
@@ -21,3 +19,18 @@ const { videos } = JSON.parse(data);
         })
     }
 </ul>
+
+{
+    videos.length < 1 && (
+        <p>
+            No videos... We've likely hit our YouTube api points limit. Please
+            check back later.
+        </p>
+    )
+}
+
+<style>
+    ul {
+        padding-left: 0;
+    }
+</style>

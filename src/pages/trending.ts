@@ -32,6 +32,8 @@ export const GET:APIRoute = async ({ request }) => {
         return Response.json(JSON.stringify({ videos }));
     } catch (err) {
         console.error('500 error in get', err);
-        return Response.error();
+        return new Response(null, {
+            status: 500,
+        });
     }
 }
