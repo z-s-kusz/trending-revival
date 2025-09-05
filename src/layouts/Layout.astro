@@ -6,27 +6,48 @@
 		<link rel="icon" type="image/png" href="/video-96.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Trending Revival</title>
-
-		<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" media="screen" />
-		<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-dark.css"
-			media="screen and (prefers-color-scheme: dark)" />
-
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/sakura.css/css/sakura.css"
+			media="screen"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/sakura.css/css/sakura-dark.css"
+			media="screen and (prefers-color-scheme: dark)"
+		/>
 		<meta property="og:title" content="Trending Revival" />
-		<meta property="og:description"
-			content="YouTube's trending page brought back from google's graveyard." />
-		<meta property="og:url" content="https://trending-revival.netlify.app" />
+		<meta
+			property="og:description"
+			content="YouTube's trending page brought back from google's graveyard."
+		/>
+		<meta
+			property="og:url"
+			content="https://trending-revival.netlify.app"
+		/>
 		<meta property="og:type" content="website" />
 	</head>
 	<body>
-		<slot />
+		<a href="/"><h1>YouTube's Trending Videos</h1></a>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<a href="/about">About</a>
+			<p>Zach Kusz - 2025</p>
+		</footer>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+	h1 {
+		border-bottom: 2px solid #ff0000;
+	}
+	main {
+		min-height: 100dvh;
+	}
+	footer {
+		text-align: center;
+		border-top: 2px solid #ff0000;
 	}
 </style>
