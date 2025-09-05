@@ -13,7 +13,7 @@ const getTrendingVideos = async (regionCode: string) => {
             part: ['snippet', 'statistics'],
             chart: 'mostPopular',
             regionCode,
-            maxResults: 4, // 50
+            maxResults: 50, // may need to tune down if we hit api limits
         });
 
         return response.data.items;
