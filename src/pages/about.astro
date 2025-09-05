@@ -1,12 +1,13 @@
 ---
+export const prerender = true;
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
     <h2>About</h2>
     <p>
-        <b>TLDR</b> I liked browsing the Youtube Trending page and I wanted to continue doing
-        so after Youtube removed it. The official api still allows me to get
+        <b>TLDR</b> I liked browsing the Youtube Trending page and I wanted to continue
+        doing so after Youtube removed it. The official api still allows me to get
         the trending page's videos via the "mostPopular" videos chart.
     </p>
 
@@ -14,27 +15,29 @@ import Layout from "../layouts/Layout.astro";
     <p>
         In July 2025
         <a
-            href="https://variety.com/2025/digital/news/youtube-trending-page-shutting-down-1236452150/">
+            href="https://variety.com/2025/digital/news/youtube-trending-page-shutting-down-1236452150/"
+        >
             YouTube sunset the Trending Page.
         </a>
         Most users, I think, couldn't care less. But I used it very regularly. It
-        was a way to find videos my algorithm would never have showed me. I
-        discovered quite a few channels through the trending page. I'd hear about
-        movies and music in genres I don't follow. I'd stay informed on news that would never cross any of my
-        other feeds. Even though the trending page is inherently algorithm based it
-        feels more free than a single user's personalized recommendations.
+        was a way to find videos my algorithm would never have showed me. I discovered
+        quite a few channels through the trending page. I'd hear about movies and
+        music in genres I don't follow. I'd stay informed on news that would never
+        cross any of my other feeds. Even though the trending page is inherently
+        algorithm based it feels more free than a single user's personalized recommendations.
     </p>
     <p>
-        I'm not sure why YouTube really removed the trending page. I don't quite buy the reasons
-        listed in the
+        I'm not sure why YouTube really removed the trending page. I don't quite
+        buy the reasons listed in the
         <a
-            href="https://support.google.com/youtube/thread/356702168/changes-to-discovering-trending-content-on-youtube?hl=en">
+            href="https://support.google.com/youtube/thread/356702168/changes-to-discovering-trending-content-on-youtube?hl=en"
+        >
             blog post.
         </a>
-        If it's so hard to do, why does the "mostPopular" chart still exist in
-        the youtube api? That single api call is how I was able to make this site
-        work. Maybe it will be marked as deprecated at some point but there's no
-        sign of it happening yet. At any rate, as long as the api call is available, and
+        If it's so hard to do, why does the "mostPopular" chart still exist in the
+        youtube api? That single api call is how I was able to make this site work.
+        Maybe it will be marked as deprecated at some point but there's no sign of
+        it happening yet. At any rate, as long as the api call is available, and
         free to use, I'll keep this site up.
     </p>
 </Layout>
