@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { youtube } from '@googleapis/youtube';
+import trashFilter from '../utils/trash-filter';
 
 const getTrendingVideos = async (regionCode: string) => {
     const youtubeClass = youtube({
@@ -15,7 +16,7 @@ const getTrendingVideos = async (regionCode: string) => {
             maxResults: 50, // may need to tune down if we hit api limits
         });
 
-        return response.data.items;
+        return trashFilter(response.data.items);
     } catch (error) {
         console.error('Error fetching trending videos:', error);
     }
