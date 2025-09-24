@@ -9,6 +9,9 @@ export default function trashFilter(videos: any[] | undefined) {
         'trailer reaction',
     ];
     return videos.filter((video) => {
+        // video has likely been removed, might be other signs besides viewCount to watch for
+        if (!video.statistics.viewCount) return false;
+
         let pass = true;
         trash.forEach((trashContent) => {
             if (video.snippet.title.toLowerCase().includes(trashContent)) pass = false;
