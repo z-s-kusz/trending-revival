@@ -19,7 +19,7 @@ export default function trashFilter(videos: any[] | undefined) {
             }
         }
 
-        if (channelName.includes('vegas matt')) pass = false;
+        if (channelName.includes('vegas matt') || channelName.includes('asmongold')) pass = false;
         return pass;
     });
 }
